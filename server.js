@@ -13,9 +13,10 @@ const app = express();
     res.send('hello ' + req.params.name );
 })
 
-app.get('/tip/:total/:tipPercentage', function(req, res) {
-  res.send('Your tip will be ' + req.params.tipPercentage );
-})
+app.get('/tip/:total/:tipPercentage', (req, res) => {
+	console.log(req.params);
+	res.send('TIP:' + req.params.total * req.params.tipPercentage/100);
+});
 
 // Tell the app to listen on port 3000
 app.listen(3000, function() {
